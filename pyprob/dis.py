@@ -105,6 +105,7 @@ class ModelDIS(Model):
         # Note - can't set posterior.weights directly (it's a property with no setter)
         # But can access the underlying variables in which weights is stored.
         posterior._categorical.probs = posterior.weights * torch.exp(log_w_contrib)
+        #posterior._categorical.logits += log_w_contrib
         return posterior
 
 
